@@ -8,7 +8,7 @@ namespace SSHConnector.Model
     /// <summary>
     /// IOT Edge Request Model
     /// </summary>
-    public class IotEdgeRequest : BaseRequest
+    public class IotEdgeRequest : RequestBase
     {
     }
 }

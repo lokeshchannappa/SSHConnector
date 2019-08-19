@@ -19,7 +19,7 @@ namespace SSHConnector.Streaming
         /// </summary>
         /// <param name="request">request contains Connection string, deviceId, port</param>
         /// <returns>No response, it is void</returns>
-        public static async Task StartAsync(BaseRequest request)
+        public static async Task StartAsync(SshRequest request)
         {
             using (ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(request.DeviceConnectionString, TransportType.Amqp))
             {

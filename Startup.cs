@@ -41,7 +41,7 @@ namespace SSHConnector
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMvc(config =>
                 {
-                    config.Filters.Add(typeof(CustomException));
+                    config.Filters.Add(typeof(GlobalExceptionHandler));
                 });
             
             services.AddSwaggerGen(c => 

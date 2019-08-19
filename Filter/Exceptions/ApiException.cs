@@ -3,19 +3,19 @@
 //    © 2019 WEIR All Rights Reserved
 // </copyright>
 //-----------------------------------------------------------------------
-namespace SSHConnector.Filter
+namespace SSHConnector.Filter.Exceptions
 {
     using System;
 
     /// <summary>
     /// Application Exception
     /// </summary>
-    public class ApplicationException : Exception
+    public class ApiException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationException" /> class.
         /// </summary>
-        public ApplicationException()
+        public ApiException()
         {
         }
 
@@ -23,7 +23,7 @@ namespace SSHConnector.Filter
         /// Initializes a new instance of the <see cref="ApplicationException" /> class with error message.
         /// </summary>
         /// <param name="message">Error Message</param>
-        public ApplicationException(string message) : base(message)
+        public ApiException(string message) : base(message)
         {
         }
 
@@ -32,7 +32,7 @@ namespace SSHConnector.Filter
         /// </summary>
         /// <param name="message">Error Message</param>
         /// <param name="innerException">Inner Exception</param>
-        public ApplicationException(string message, Exception innerException) : base(message, innerException)
+        public ApiException(string message, Exception innerException) : base(message, innerException)
         {
         }
     }

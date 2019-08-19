@@ -13,7 +13,7 @@ namespace SSHConnector.Filter
     /// <summary>
     /// Custom Exception to handle global exceptions
     /// </summary>
-    public class CustomException : IExceptionFilter
+    public class GlobalExceptionHandler : IExceptionFilter
     {
         /// <summary>
         /// On Exception capture the error.

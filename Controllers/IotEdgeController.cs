@@ -10,9 +10,9 @@ namespace SSHConnector.Controllers
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using SSHConnector.Filter.Exceptions;
     using SSHConnector.Model;
-    using SSHConnector.Streaming;
-   
+
     /// <summary>
     /// IOTEdgeController will be used to query IOT Edge related commands
     /// </summary>
@@ -37,20 +37,16 @@ namespace SSHConnector.Controllers
             var list = new List<IotEdgeResponse>();
             try
             {
-                // Create SSH streaming.
-                // This will run in separate thread, so that it won't block the main process
-                await Task.Factory.StartNew(() => DeviceStream.StartAsync(request));
-
-                string response = Common.GetCommandResponse(request, @"cd C:\Program Files\iotedge && iotedge list");
+                string response = await SshConnector.GetCommandResponse(request, @"cd C:\Program Files\iotedge && iotedge list");
                 if (!string.IsNullOrEmpty(response))
                 {
-                    var infos = Common.GetResponse(response);
+                    var infos = SshConnector.GetResponse(response);
                     list = infos.Select(element => new IotEdgeResponse { Name = element[0], Status = element[1], Description = string.Concat(element[2], " ", element[3], " ", element[4]), Config = element[5] }).ToList();
                 }
             }
             catch (Exception ex)
             {
-                throw new ApplicationException(ex.Message);
+                throw new ApiException(ex.Message);
             }
 
             return Ok(list);

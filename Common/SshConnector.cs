@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Common.cs" company="WEIR">
+// <copyright file="SshConnector.cs" company="WEIR">
 //    © 2019 WEIR All Rights Reserved
 // </copyright>
 //-----------------------------------------------------------------------
@@ -8,13 +8,14 @@ namespace SSHConnector
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Renci.SshNet;
     using SSHConnector.Model;
 
     /// <summary>
-    /// Common re-usable methods
+    /// SshConnector re-usable methods
     /// </summary>
-    public static class Common
+    public static class SshConnector
     {
         /// <summary>
         /// Get response, from command line output
@@ -33,9 +34,9 @@ namespace SSHConnector
         /// <param name="request">will contains host,port,userName,password</param>
         /// <param name="command">command to execute</param>
         /// <returns>command result</returns>
-        public static string GetCommandResponse(BaseRequest request, string command)
+        public static async Task<string> GetCommandResponse(RequestBase request, string command)
         {
-            var result = string.Empty;
+            string result = string.Empty;
 
             ////Set up the SSH connection
             using (var client = new SshClient(request.Host, request.Port, request.UserName, request.Password))
