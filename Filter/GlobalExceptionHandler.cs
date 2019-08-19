@@ -9,6 +9,7 @@ namespace SSHConnector.Filter
     using System.Net;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc.Filters;
+    using SSHConnector.Filter.Exceptions;
 
     /// <summary>
     /// Custom Exception to handle global exceptions
@@ -35,8 +36,9 @@ namespace SSHConnector.Filter
                 message = "A server error occurred.";
                 status = HttpStatusCode.NotImplemented;
             }
-            else if (exceptionType == typeof(ApplicationException))
+            else if (exceptionType == typeof(ApiException))
             {
+                /// way of handling custom exception
                 message = context.Exception.ToString();
                 status = HttpStatusCode.InternalServerError;
             }
