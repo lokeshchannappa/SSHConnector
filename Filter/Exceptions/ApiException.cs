@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ApplicationException.cs" company="WEIR">
-//    © 2019 WEIR All Rights Reserved
+// <copyright file="ApplicationException.cs" company="Weir Group PLC">
+//    Copyright (c) Weir Group PLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
 namespace SSHConnector.Filter.Exceptions

@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Startup.cs" company="WEIR">
-//    © 2019 WEIR All Rights Reserved
+// <copyright file="Startup.cs" company="Weir Group PLC">
+//    Copyright (c) Weir Group PLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
 namespace SSHConnector
@@ -67,7 +67,6 @@ namespace SSHConnector
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>

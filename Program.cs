@@ -1,12 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Program.cs" company="WEIR">
-//    © 2019 WEIR All Rights Reserved
+// <copyright file="Program.cs" company="Weir Group PLC">
+//    Copyright (c) Weir Group PLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
 namespace SSHConnector
 {
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
+    using Serilog;
 
     /// <summary>
     /// Main Program 
@@ -29,6 +30,9 @@ namespace SSHConnector
         /// <returns>Web host builder</returns>
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+        // Add the following lines
+        .UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+                .ReadFrom.Configuration(hostingContext.Configuration));
     }
 }

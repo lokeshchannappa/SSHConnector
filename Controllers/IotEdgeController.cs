@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IotEdgeController.cs" company="WEIR">
-//    © 2019 WEIR All Rights Reserved
+// <copyright file="IotEdgeController.cs" company="Weir Group PLC">
+//    Copyright (c) Weir Group PLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
 namespace SSHConnector.Controllers
