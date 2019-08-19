@@ -30,7 +30,8 @@ namespace SSHConnector.Controllers
             try
             {
                 // Create SSH streaming. This will run in separate thread, so that it won't block the main process
-                await Task.Factory.StartNew(() => DeviceStream.StartAsync(request));
+                DeviceStream deviceStream = new DeviceStream();
+                await Task.Factory.StartNew(() => deviceStream.StartAsync(request));
                 return Ok("Connected");
             }
             catch (Exception ex)

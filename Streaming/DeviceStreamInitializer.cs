@@ -59,7 +59,7 @@ namespace SSHConnector.Streaming
             while (true)
             {
                 var tcpClient = await tcpListener.AcceptTcpClientAsync().ConfigureAwait(false);
-                HandleIncomingConnectionsAndCreateStreams(this.deviceId, this.serviceClient, tcpClient);
+                await HandleIncomingConnectionsAndCreateStreams(this.deviceId, this.serviceClient, tcpClient);
             }
         }
 
@@ -103,7 +103,7 @@ namespace SSHConnector.Streaming
         /// <param name="deviceId">device Id</param>
         /// <param name="serviceClient">service Client</param>
         /// <param name="tcpClient">TCP Client</param>
-        private static async void HandleIncomingConnectionsAndCreateStreams(string deviceId, ServiceClient serviceClient, TcpClient tcpClient)
+        private static async Task HandleIncomingConnectionsAndCreateStreams(string deviceId, ServiceClient serviceClient, TcpClient tcpClient)
         {
             DeviceStreamRequest deviceStreamRequest = new DeviceStreamRequest(streamName: "TestStream");
 
